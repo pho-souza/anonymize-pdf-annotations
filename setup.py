@@ -39,7 +39,7 @@ class BuildBinaryCommand(distutils.cmd.Command):
             with open(OSX_INFO_PLIST, 'w') as file:
                 file.write(filedata)
 
-            command_gui = f'pyinstaller --noconfirm --onefile --windowed --noupx --name "{NAME}" --clean "./{MAIN}"'
+            command_gui = f'pyinstaller --noconfirm --onefile --console --noupx --name "{NAME}" --clean "./{MAIN}"'
 
             os.system(command_gui)
 
@@ -54,13 +54,13 @@ class BuildBinaryCommand(distutils.cmd.Command):
                 options = {'py2app': OPTIONS},
                 setup_requires = ['py2app'])
         elif sys.platform == 'win32':
-            command_gui = f'pyinstaller --noconfirm --onefile --windowed --noupx  --name "{NAME}" --clean  "./{MAIN}"'
+            command_gui = f'pyinstaller --noconfirm --onefile --console --noupx  --name "{NAME}" --clean  "./{MAIN}"'
 
             os.system(command_gui)
 
             exit(0)
         elif sys.platform == 'linux':
-            command_gui = f'pyinstaller --noconfirm --onefile --windowed --noupx --name "{NAME}" --clean  "./{MAIN}"'
+            command_gui = f'pyinstaller --noconfirm --onefile --noupx --name "{NAME}" --clean  "./{MAIN}"'
 
             os.system(command_gui)
 
